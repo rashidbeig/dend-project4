@@ -187,8 +187,8 @@ def main():
     load the schema-on-read tables, perform data transformations and load into parquet files in S3 data lake.
     """
     spark = create_spark_session()
-    #input_data = "s3a://udacity-dend/"
-    input_data = "s3a://rashiddend/"
+    input_data = "s3a://udacity-dend/"
+    #input_data = "s3a://rashiddend/"
     output_data = "s3a://rashiddend/project4/"
 
     process_song_data(spark, input_data, output_data)
