@@ -143,11 +143,15 @@ def process_log_data(spark, input_data, output_data):
 
     # read in song, artist and time data to use for songplays table
     print("Reading song parquet file..")
-    song_df = spark.read.parquet("s3a://rashiddend/project4/songs_table")
+    #song_df = spark.read.parquet("s3a://rashiddend/project4/songs_table")
+    song_df = spark.read.parquet(output_data + "songs_table")
     song_df.createOrReplaceTempView("songs_table")
-
+ 
+    
+    
     print("Reading artist parquet file..")
-    artist_df = spark.read.parquet("s3a://rashiddend/project4/artists_table")
+    #artist_df = spark.read.parquet("s3a://rashiddend/project4/artists_table")
+    artist_df = spark.read.parquet(output_data + "artists_table")
     artist_df.createOrReplaceTempView("artists_table")
 
     print("Reading time parquet file..")
